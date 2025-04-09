@@ -3,19 +3,28 @@ import java.util.List;
 
 public class Merchant {
 
-    /*
 
-    List<item> items = new ArrayList<>();
+    List<Item> items = new ArrayList<>();
 
-    public List<item> getItems() {
+    public Merchant(){
+
+        items.add(new Item("Sword"));
+        items.add(new Item("Forgotten Relic"));
+        items.add(new Item("Axe"));
+        items.add(new Item("Cursed Relic"));
+        items.add(new Item("Dual Sword"));
+        items.add(new Item("Fire Relic"));
+        items.add(new Item("Great Hammer"));
+
+    }
+
+
+    public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
-
-
-     */
 
 }

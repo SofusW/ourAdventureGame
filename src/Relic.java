@@ -1,12 +1,11 @@
 package game.items;
 
-public class Relics extends Items implements Comparable<Relics> {
-    private int value;
+public class Relics extends Item implements Comparable<Relics> {
     private boolean cursed;
 
     public Relics(String name, int value, boolean cursed) {
         super(name); // Kalder superklassens constructor
-        this.value = value;
+        super(value);
         this.cursed = cursed;
     }
 
