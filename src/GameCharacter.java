@@ -28,7 +28,7 @@ class userCharacter implements GameCharacter {
     }
 
 
-    ArrayList<Item> items;
+    // ArrayList<Item> items;
 
     
 
