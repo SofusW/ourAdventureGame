@@ -1,6 +1,6 @@
 package game.items;
 
-public class Weapons extends Items {
+class Weapons extends Items {
     private int damage;
 
     public Weapons(String name, int damage) {
@@ -21,5 +21,5 @@ public class Weapons extends Items {
         System.out.println("Weapon: " + getName() + ", Damage: " + damage);
     }
 }
-public class Weapons {
+public class weapons {
 }
