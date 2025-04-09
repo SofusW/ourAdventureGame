@@ -1,19 +1,17 @@
-package game.items;
-
-public abstract class Items {
+public class Item {
     private String name;
+    private int value;
 
-    public Items(String name) {
+
+    public Item(String name, int value){
         this.name = name;
+        this.value = value;
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public int getValue(){
+        return value;
     }
-
-    public abstract void displayInfo(); // Abstrakt metode til visning af info
 }
