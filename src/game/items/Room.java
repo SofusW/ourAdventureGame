@@ -1,3 +1,5 @@
+package game.items;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -5,7 +7,7 @@ import java.util.Scanner;
 public class Room {
 
     Merchant merchant = new Merchant();
-    List<Item> items = new ArrayList<>(); // hvis du har en Order-klasse
+    List<Items> items = new ArrayList<>(); // hvis du har en Order-klasse
 
     public void openRoom() {
         Scanner scanner = new Scanner(System.in);
@@ -50,9 +52,9 @@ public class Room {
         System.out.println("\n━━━━━━━━━━━━━━━━━━━━━");
         System.out.println("📜 Welcome to Patches' shop");
         System.out.println("━━━━━━━━━━━━━━━━━━━━━");
-        List<Item> products = merchant.getItems();
+        List<Items> products = merchant.getItems();
 
-        for (Item item : products) {
+        for (Items item : products) {
             System.out.println("• " + item.getName());
         }
 
@@ -62,8 +64,49 @@ public class Room {
 
     private void openCombatRoom(Scanner scanner) {
         System.out.println("⚔️ You enter a dark room... a monster appears!");
-        // Her kan du tilføje kamp-logik senere
-        System.out.println("You fought bravely!");
+        System.out.println("⚔️ You enter a dark room... A wild " + monster.getName() + " appears!");
+        System.out.println("You both have 10 HP. Fight begins!");
+
+        while (userCharacter.isAlive() && monster.isAlive()) {
+            System.out.println("\nYour HP: " + userCharacter.getHealth() + " | " + monster.getName() + "'s HP: " + monster.getHealth());
+            System.out.println("Choose your action:");
+            System.out.println("1. Attack");
+            System.out.println("2. Drink Potion");
+            System.out.println("3. Run");
+
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "1":
+                    int damageToMonster = userCharacter.attackPower();
+                    monster.takeDamage(damageToMonster);
+                    System.out.println("🗡️ You dealt " + damageToMonster + " damage!");
+                    break;
+                case "2":
+                    userCharacter.heal();
+                    break;
+                case "3":
+                    System.out.println("🏃‍♂️ You fled the fight!");
+                    return; // afslutter metoden
+                default:
+                    System.out.println("❌ Invalid input.");
+                    continue;
+            }
+
+            if (!monster.isAlive()) {
+                System.out.println("🎉 You defeated the " + monster.getName() + "!");
+                break;
+            }
+
+            // Monster's turn
+            int damageToPlayer = monster.attack();
+            userCharacter.takeDamage(damageToPlayer);
+            System.out.println("💥 " + monster.getName() + " attacked you for " + damageToPlayer + " damage!");
+
+            if (!userCharacter.isAlive()) {
+                System.out.println("☠️ You have been defeated by the " + monster.getName() + "...");
+            }
+        }
     }
 
     private void openRestingRoom(Scanner scanner) {
@@ -76,5 +119,3 @@ public class Room {
         // Tilføj loot-generering her
     }
 }
-
-

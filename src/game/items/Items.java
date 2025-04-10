@@ -1,17 +1,30 @@
-public class Item {
-    private String name;
-    private int value;
+package game.items;
+
+public abstract class Items {
+
+        String name;
+        int value;
 
 
-    public Item(String name, int value){
-        this.name = name;
-        this.value = value;
-    }
+        public Items(String name, int value){
+            this.name = name;
+            this.value = value;
+        }
 
-    public String getName(){
-        return name;
-    }
-    public int getValue(){
-        return value;
-    }
+        public String getName(){
+            return name;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        public void setValue(int value){
+            this.value = value;
+        }
+
+    public abstract void displayInfo();
+
+
 }
+

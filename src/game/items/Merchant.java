@@ -1,10 +1,12 @@
+package game.items;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Merchant {
 
 
-    List<Item> items = new ArrayList<>();
+    List<Items> items = new ArrayList<>();
 
     public Merchant(){
 
@@ -19,11 +21,11 @@ public class Merchant {
     }
 
 
-    public List<Item> getItems() {
+    public List<Items> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<Items> items) {
         this.items = items;
     }
 

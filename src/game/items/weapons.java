@@ -3,8 +3,8 @@ package game.items;
 class Weapons extends Items {
     private int damage;
 
-    public Weapons(String name, int damage) {
-        super(name); // Kalder superklassens constructor
+    public Weapons(String name, int value, int damage) {
+        super(name,value); // Kalder superklassens constructor
         this.damage = damage;
     }
 
@@ -21,5 +21,4 @@ class Weapons extends Items {
         System.out.println("Weapon: " + getName() + ", Damage: " + damage);
     }
 }
-public class weapons {
-}
+

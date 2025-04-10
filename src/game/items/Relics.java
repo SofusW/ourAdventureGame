@@ -1,33 +1,40 @@
 package game.items;
 
-public class Relics extends Item implements Comparable<Relics> {
+public class Relics extends Items implements Comparable<Relics> {
     private boolean cursed;
 
     public Relics(String name, int value, boolean cursed) {
-        super(name); // Kalder superklassens constructor
-        super(value);
+        super(name, value);// Kalder superklassens constructor
         this.cursed = cursed;
     }
 
-    public int getValue() {
-        return value;
+
+    public String Name() {return super.getName();
     }
 
+    @Override
+    public int getValue() {
+        return super.getValue();
+    }
+
+    @Override
     public void setValue(int value) {
-        this.value = value;
+        super.setValue(value);
     }
 
     public boolean isCursed() {
+
         return cursed;
     }
 
     public void setCursed(boolean cursed) {
+
         this.cursed = cursed;
     }
 
     @Override
     public void displayInfo() {
-        System.out.println("Relic: " + getName() + ", Value: " + value + ", Cursed: " + cursed);
+        System.out.println("Relic: " + getName() + ", Value: " + getValue() + ", Cursed: " + cursed);
     }
 
     @Override
