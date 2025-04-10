@@ -1,6 +1,6 @@
 package game.items;
 
-public abstract class Items {
+public class Items {
 
         String name;
         int value;
@@ -23,7 +23,9 @@ public abstract class Items {
             this.value = value;
         }
 
-    public abstract void displayInfo();
+    public void displayInfo() {
+
+    }
 
 
 }

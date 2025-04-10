@@ -8,15 +8,16 @@ public class Merchant {
 
     List<Items> items = new ArrayList<>();
 
-    public Merchant(){
+    public Merchant(List<Items> items){
 
-        items.add(new Item("Sword"));
-        items.add(new Item("Forgotten Relic"));
-        items.add(new Item("Axe"));
-        items.add(new Item("Cursed Relic"));
-        items.add(new Item("Dual Sword"));
-        items.add(new Item("Fire Relic"));
-        items.add(new Item("Great Hammer"));
+        this.items = items;
+        items.add(new Weapons("Sword", 100, 10));
+        items.add(new Relics("Forgotten Relic", 100, false));
+        items.add(new Weapons("Axe", 150, 12));
+        items.add(new Relics("Cursed Relic", 125, true));
+        items.add(new Weapons("Dual Sword", 225, 17));
+        items.add(new Relics("Fire Relic", 200, false));
+        items.add(new Weapons("Great Hammer", 250, 20));
 
     }
 

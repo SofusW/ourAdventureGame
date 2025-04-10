@@ -1,20 +1,35 @@
 package game.items;
 
+import game.entities.GameCharacter;
+import game.entities.Monster;
+import game.entities.UserCharacter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Room {
 
-    Merchant merchant = new Merchant();
-    List<Items> items = new ArrayList<>(); // hvis du har en Order-klasse
+    public static void main(String[] args) {
 
-    public void openRoom() {
+        List<Items> items = new ArrayList<>(); // hvis du har en Order-klasse
+
+        Merchant merchant = new Merchant(items);
+
+        GameCharacter player = new UserCharacter("Deniz", 1000, 35);
+        GameCharacter monster = new Monster("Rat", 100, 1);
+
+        System.out.println("\n🌟 Welcome adventurer!");
+        openRoom(player, monster, merchant);
+
+    }
+
+    public static void openRoom(GameCharacter player, GameCharacter monster, Merchant merchant) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
         while (running) {
-            System.out.println("\n🌟 Welcome adventurer!");
+
             System.out.println("Choose your destination:");
             System.out.println("1. 🛒 Merchant Room");
             System.out.println("2. ⚔️ Combat Room");
@@ -26,10 +41,10 @@ public class Room {
 
             switch (input) {
                 case "1":
-                    openMerchantRoom(scanner);
+                    openMerchantRoom(scanner, merchant);
                     break;
                 case "2":
-                    openCombatRoom(scanner);
+                    openCombatRoom(scanner, player, monster);
                     break;
                 case "3":
                     openRestingRoom(scanner);
@@ -48,7 +63,7 @@ public class Room {
         scanner.close();
     }
 
-    private void openMerchantRoom(Scanner scanner) {
+    private static void openMerchantRoom(Scanner scanner, Merchant merchant) {
         System.out.println("\n━━━━━━━━━━━━━━━━━━━━━");
         System.out.println("📜 Welcome to Patches' shop");
         System.out.println("━━━━━━━━━━━━━━━━━━━━━");
@@ -62,13 +77,12 @@ public class Room {
         scanner.nextLine();
     }
 
-    private void openCombatRoom(Scanner scanner) {
-        System.out.println("⚔️ You enter a dark room... a monster appears!");
+    private static void openCombatRoom(Scanner scanner, GameCharacter player, GameCharacter monster) {
         System.out.println("⚔️ You enter a dark room... A wild " + monster.getName() + " appears!");
         System.out.println("You both have 10 HP. Fight begins!");
 
-        while (userCharacter.isAlive() && monster.isAlive()) {
-            System.out.println("\nYour HP: " + userCharacter.getHealth() + " | " + monster.getName() + "'s HP: " + monster.getHealth());
+        while (player.getIsAlive() && monster.getIsAlive()) {
+            System.out.println("\nYour HP: " + player.getHealth() + " | " + monster.getName() + "'s HP: " + monster.getHealth());
             System.out.println("Choose your action:");
             System.out.println("1. Attack");
             System.out.println("2. Drink Potion");
@@ -78,12 +92,12 @@ public class Room {
 
             switch (input) {
                 case "1":
-                    int damageToMonster = userCharacter.attackPower();
+                    int damageToMonster = player.getAttackPower();
                     monster.takeDamage(damageToMonster);
                     System.out.println("🗡️ You dealt " + damageToMonster + " damage!");
                     break;
                 case "2":
-                    userCharacter.heal();
+                    player.heal();
                     break;
                 case "3":
                     System.out.println("🏃‍♂️ You fled the fight!");
@@ -93,28 +107,28 @@ public class Room {
                     continue;
             }
 
-            if (!monster.isAlive()) {
+            if (!monster.getIsAlive()) {
                 System.out.println("🎉 You defeated the " + monster.getName() + "!");
                 break;
             }
 
-            // Monster's turn
-            int damageToPlayer = monster.attack();
-            userCharacter.takeDamage(damageToPlayer);
-            System.out.println("💥 " + monster.getName() + " attacked you for " + damageToPlayer + " damage!");
+            // game.entities.Monster's turn
 
-            if (!userCharacter.isAlive()) {
+            player.takeDamage(monster.getAttackPower());
+            System.out.println("💥 " + monster.getName() + " attacked you for " + monster.getAttackPower() + " damage!");
+
+            if (!player.getIsAlive()) {
                 System.out.println("☠️ You have been defeated by the " + monster.getName() + "...");
             }
         }
     }
 
-    private void openRestingRoom(Scanner scanner) {
+    private static void openRestingRoom(Scanner scanner) {
         System.out.println("💤 You take a break and heal some health.");
         // Evt. healing logic
     }
 
-    private void openLootRoom(Scanner scanner) {
+    private static void openLootRoom(Scanner scanner) {
         System.out.println("🎁 You find a chest filled with loot!");
         // Tilføj loot-generering her
     }
