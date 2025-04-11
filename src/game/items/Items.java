@@ -27,6 +27,21 @@ public class Items {
 
     }
 
+    public String toString() {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.append(name);
+
+            while(sb.length() < 20) {
+                sb.append(" ");
+            }
+
+            sb.append("value: " + value);
+
+            return sb.toString();
+    }
+
 
 }
 

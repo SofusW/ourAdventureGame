@@ -70,7 +70,7 @@ public class Room {
         List<Items> products = merchant.getItems();
 
         for (Items item : products) {
-            System.out.println("• " + item.getName());
+            System.out.println(item);
         }
 
         System.out.println("Type anything to return...");
