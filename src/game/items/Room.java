@@ -69,6 +69,7 @@ public class Room {
         System.out.println("━━━━━━━━━━━━━━━━━━━━━");
         List<Items> products = merchant.getItems();
 
+        Items.sortValue(products);
         for (Items item : products) {
             System.out.println(item);
         }

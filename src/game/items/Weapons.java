@@ -19,7 +19,6 @@ public class Weapons extends Items{
         this.damage = damage;
     }
 
-    @Override
     public void displayInfo() {
         System.out.println("Weapon: " + getName() + ", Damage: " + damage);
     }

@@ -32,7 +32,6 @@ public class Relics extends Items implements Comparable<Relics> {
         this.cursed = cursed;
     }
 
-    @Override
     public void displayInfo() {
         System.out.println("Relic: " + getName() + ", Value: " + getValue() + ", Cursed: " + cursed);
     }

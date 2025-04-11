@@ -1,5 +1,8 @@
 package game.items;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Items {
 
         String name;
@@ -23,7 +26,9 @@ public class Items {
             this.value = value;
         }
 
-    public void displayInfo() {
+    public static void sortValue(List<Items> person) {
+
+        Collections.sort(person, new ValueComparator());
 
     }
 
