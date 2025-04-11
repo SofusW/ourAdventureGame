@@ -80,7 +80,6 @@ public class Room {
 
     private static void openCombatRoom(Scanner scanner, GameCharacter player, GameCharacter monster) {
         System.out.println("⚔️ You enter a dark room... A wild " + monster.getName() + " appears!");
-        System.out.println("You both have 10 HP. Fight begins!");
 
         while (player.getIsAlive() && monster.getIsAlive()) {
             System.out.println("\nYour HP: " + player.getHealth() + " | " + monster.getName() + "'s HP: " + monster.getHealth());
