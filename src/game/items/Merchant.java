@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Merchant {
 
-
     List<Items> items = new ArrayList<>();
 
     public Merchant(List<Items> items){
@@ -20,7 +19,6 @@ public class Merchant {
         items.add(new Weapons("Great Hammer", 250, 20));
 
     }
-
 
     public List<Items> getItems() {
         return items;
