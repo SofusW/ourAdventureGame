@@ -10,12 +10,12 @@ public class Merchant {
     public Merchant(List<Items> items){
 
         this.items = items;
-        items.add(new Weapons("Sword", 100, 10));
-        items.add(new Relics("Forgotten Relic", 100, false));
-        items.add(new Weapons("Axe", 150, 12));
+        items.add(new Weapons("Sword",150, 10));
+        items.add(new Relics("Forgotten Relic", 200, false));
+        items.add(new Weapons("Axe", 110, 12));
         items.add(new Relics("Cursed Relic", 125, true));
         items.add(new Weapons("Dual Sword", 225, 17));
-        items.add(new Relics("Fire Relic", 200, false));
+        items.add(new Relics("Fire Relic", 300, false));
         items.add(new Weapons("Great Hammer", 250, 20));
 
     }

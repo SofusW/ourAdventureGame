@@ -4,13 +4,13 @@ public class UserCharacter implements GameCharacter{
 
     public static String name;
     public static int health;
-    public static int attackPower;;
+    public static int attackPower;
 
     public UserCharacter (String name, int health, int attackPower){
 
-        this.name = name;
-        this.health = health;
-        this.attackPower = attackPower;
+        UserCharacter.name = name;
+        UserCharacter.health = health;
+        UserCharacter.attackPower = attackPower;
 
     }
 
@@ -34,11 +34,7 @@ public class UserCharacter implements GameCharacter{
 
     @Override
     public boolean getIsAlive() {
-        if (health > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return health > 0;
     }
 
     @Override
@@ -58,15 +54,6 @@ public class UserCharacter implements GameCharacter{
     public void heal() {
 
     }
-
-    public static void playAble(){
-        UserCharacter player1 = new UserCharacter("Spiller 1", 200, 25);
-
-        System.out.println(player1.getName() + " har " + player1.health + " liv");
-        System.out.println(player1.getName() + " har " + player1.attackPower() + " Skade ");
-
-    }
-
 
 
 }
